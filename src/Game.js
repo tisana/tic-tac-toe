@@ -8,7 +8,7 @@ class Game extends Component {
             history: [{
                 squares: Array(9).fill(null),
             }],
-            xIsNext: true,
+            xIsNext: randomStarter(),
             stepNumber: 0,
         };
     }
@@ -95,6 +95,11 @@ function calculateWinner(squares) {
         }
     }
     return null;
+}
+
+function randomStarter() {
+    const randomNum = Math.random().toFixed(0);
+    return Boolean(randomNum%2===0);
 }
 
 export default Game;
